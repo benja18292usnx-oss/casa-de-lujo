@@ -10,6 +10,7 @@
 <meta property="og:description" content="Recorré el entorno y el interior de una residencia de lujo frente al lago.">
 <meta property="og:image" content="img/hero-1280.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308142b'/%3E%3Cpath d='M6 23 16 9l10 14' fill='none' stroke='%23e9c98f' stroke-width='3'/%3E%3C/svg%3E">
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
 <link rel="preload" href="fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="img/hero-movil-576.webp" media="(max-aspect-ratio: 4/5)">
 <link rel="preload" as="image" imagesrcset="img/hero-960.webp 960w, img/hero-1280.webp 1280w" imagesizes="100vw" media="(min-aspect-ratio: 4/5)">
@@ -171,6 +172,35 @@ dialog.lb::backdrop{background:rgba(3,8,20,.9)}
 .lb .x,.lb .pv,.lb .nx{position:absolute;z-index:2;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:1.4rem}
 .lb .x{top:1rem;right:1rem}.lb .pv{left:1rem;top:50%}.lb .nx{right:1rem;top:50%}
 
+
+/* 3D */
+.v3cta{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:21/9;min-height:320px;display:grid;place-items:center;text-align:center;background:var(--ink2)}
+.v3cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.v3cta:hover img{transform:scale(1.04)}
+.v3cta::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(8,20,43,.25),rgba(8,20,43,.75))}
+.v3cta .in{position:relative;z-index:1;padding:1.5rem}
+.v3cta h3{font-size:clamp(2.6rem,8vw,6.5rem)}
+.v3cta p{color:var(--txt);opacity:.85;margin:.6rem auto 1.4rem;max-width:42ch}
+.v3cta .cta{font-size:.85rem;padding:.85rem 1.5rem}
+#v3{position:fixed;inset:0;z-index:100;background:#06112a;color:#fff}
+#v3[hidden]{display:none}
+.v3-stage,.v3-stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;touch-action:none}
+.v3-top{position:absolute;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;background:linear-gradient(rgba(4,10,24,.7),transparent);pointer-events:none}
+.v3-top>*{pointer-events:auto}
+.v3-brand{font-family:Anton,Impact,sans-serif;letter-spacing:.16em;font-size:1rem}
+.v3-right{display:flex;gap:.5rem}
+.v3-q,.v3-x{height:40px;padding:0 .9rem;border-radius:99px;background:rgba(8,20,43,.6);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:.75rem;letter-spacing:.08em}
+.v3-x{width:40px;padding:0;font-size:1rem}
+.v3-views{position:absolute;left:50%;bottom:max(1rem,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;gap:.35rem;max-width:calc(100% - 1.4rem);overflow-x:auto;scrollbar-width:none;padding:.35rem;border-radius:99px;background:rgba(8,20,43,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14)}
+.v3-views::-webkit-scrollbar{display:none}
+.v3-views button{flex:none;padding:.55rem .95rem;border-radius:99px;font-size:.8rem;color:#cfd8e6}
+.v3-views button[aria-selected=true]{background:#fff;color:#08142b}
+.v3-help{position:absolute;left:50%;bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 3.6rem);transform:translateX(-50%);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;opacity:.75;white-space:nowrap;pointer-events:none}
+.v3-load{position:absolute;inset:0;display:grid;place-content:center;gap:1rem;text-align:center;background:#06112a;transition:opacity .8s}
+.v3-load.done{opacity:0;pointer-events:none}
+.v3-l-t{font-size:.8rem;letter-spacing:.25em;text-transform:uppercase}
+.v3-bar{width:220px;height:2px;background:rgba(255,255,255,.15)}.v3-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -180,7 +210,7 @@ dialog.lb::backdrop{background:rgba(3,8,20,.9)}
 <body>
 <nav class="nav" id="nav">
   <a class="logo" href="#inicio">MONTEVAR</a>
-  <ul><li><a href="#casa">La casa</a></li><li><a href="#entorno">Entorno</a></li><li><a href="#interior">Interior</a></li><li><a href="#plano">Plano</a></li></ul>
+  <ul><li><a href="#casa">La casa</a></li><li><a href="#entorno">Entorno</a></li><li><a href="#interior">Interior</a></li><li><a href="#tres-d">3D</a></li><li><a href="#plano">Plano</a></li></ul>
   <a class="cta" href="#contacto">Agendar visita</a>
 </nav>
 
@@ -282,6 +312,23 @@ dialog.lb::backdrop{background:rgba(3,8,20,.9)}
   </div>
 </section>
 
+<section class="pad" id="tres-d" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div class="rv"><div class="eyebrow">Recorrido 3D</div><h2 class="sec-h">Caminá la casa <em>en 3D</em>.</h2></div>
+      <p class="rv">La misma casa de la foto en 3D, con pisos rústicos de madera, piedra natural y travertino, luces cálidas y la piscina reflejando todo. Girala por fuera y entrá a cada ambiente.</p>
+    </div>
+    <div class="v3cta rv">
+      <img src="img/3d-768.webp" srcset="img/3d-768.webp 768w, img/3d-1280.webp 1280w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1280" height="720">
+      <div class="in">
+        <h3 class="display">Entrar en 3D</h3>
+        <p>Exterior, vista aérea y los seis ambientes por dentro. Funciona en el celular.</p>
+        <button class="cta gold" id="open3d">▶ Abrir recorrido 3D</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="pad" id="plano" style="background:linear-gradient(180deg,var(--ink),var(--ink2))">
   <div class="wrap plan-grid">
     <div class="rv">
@@ -313,6 +360,8 @@ dialog.lb::backdrop{background:rgba(3,8,20,.9)}
 </main>
 
 <footer><div class="wrap"><span>© 2026 Montevar · Casa de lujo en la montaña</span><span>Proyecto conceptual · imágenes generadas con IA</span></div></footer>
+
+<div id="v3" hidden aria-label="Recorrido 3D de la casa"></div>
 
 <dialog class="lb" id="lb" aria-label="Galería en pantalla completa">
   <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
@@ -424,6 +473,15 @@ const req=()=>{if(!tick){tick=true;requestAnimationFrame(frame)}};
 addEventListener('scroll',req,{passive:true});
 if(matchMedia('(hover:hover) and (pointer:fine)').matches)addEventListener('mousemove',e=>{if(scrollY>innerHeight)return;mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;req()},{passive:true});
 frame();
+
+
+/* 3D tour (loaded only on demand) */
+const v3=$('#v3');let v3busy=false;
+async function open3d(view){if(v3busy)return;v3busy=true;v3.hidden=false;document.documentElement.style.overflow='hidden';
+ try{const m=await import('./casa3d.js');await m.open3D(v3,{view,quality:new URLSearchParams(location.search).get('q')})}catch(e){console.error(e);v3.innerHTML='<p style="padding:2rem">No se pudo abrir el 3D en este navegador.</p><button class="cta" onclick="this.parentNode.hidden=true;document.documentElement.style.overflow=\'\'">Cerrar</button>'}
+ v3busy=false}
+$('#open3d').onclick=()=>open3d();
+if(location.hash.startsWith('#3d'))open3d(location.hash.split('-')[1]);
 
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
