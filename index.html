@@ -137,6 +137,7 @@ section{position:relative}
 .navr button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .2s}
 .navr button:hover{background:rgba(255,255,255,.1)}
 @media (max-width:900px){.tour{grid-template-columns:1fr}.stage{aspect-ratio:4/3}}
+@media (max-width:600px){.full span{display:none}.full{padding:.6rem;right:.6rem;top:.6rem}}
 
 /* PLAN */
 .plan-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,5vw,5rem);align-items:center}
@@ -273,7 +274,7 @@ dialog.lb::backdrop{background:rgba(3,8,20,.9)}
     <div class="tour rv">
       <div class="stage" id="stage">
         <img id="roomImg" src="img/living-1280.webp" srcset="img/living-768.webp 768w, img/living-1280.webp 1280w" sizes="(max-width:900px) 100vw, 66vw" alt="" loading="lazy" decoding="async" width="1280" height="720">
-        <button class="full" id="fullBtn" aria-label="Ver en pantalla completa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button>
+        <button class="full" id="fullBtn" aria-label="Ver en pantalla completa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Pantalla completa</span></button>
         <div class="tip" id="tip" role="status"></div>
       </div>
       <div class="room" id="room" aria-live="polite"></div>
