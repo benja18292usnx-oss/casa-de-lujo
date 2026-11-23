@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Montevar — Casa de lujo en la montaña</title>
+<meta name="description" content="Montevar: residencia de lujo frente al lago en la montaña. Recorré el entorno y el interior: living, cocina, comedor, suite principal, baño y spa.">
+<meta name="theme-color" content="#08142b">
+<meta property="og:title" content="Montevar — Casa de lujo en la montaña">
+<meta property="og:description" content="Recorré el entorno y el interior de una residencia de lujo frente al lago.">
+<meta property="og:image" content="img/hero-1280.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2308142b'/%3E%3Cpath d='M6 23 16 9l10 14' fill='none' stroke='%23e9c98f' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-movil-576.webp" media="(max-aspect-ratio: 4/5)">
+<link rel="preload" as="image" imagesrcset="img/hero-960.webp 960w, img/hero-1280.webp 1280w" imagesizes="100vw" media="(min-aspect-ratio: 4/5)">
+<style>
+@font-face{font-family:Anton;src:url(fonts/anton.woff2) format("woff2");font-display:swap}
+:root{--ink:#08142b;--ink2:#0d1f3d;--gold:#e9c98f;--txt:#eef2f8;--mut:#a9b6cc;--line:rgba(255,255,255,.14);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--txt);font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.display{font-family:Anton,"Arial Narrow",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.86}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1.1rem clamp(1.1rem,3vw,2.5rem);transition:background .4s,backdrop-filter .4s,padding .4s}
+.nav.solid{background:rgba(8,20,43,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-block:.7rem}
+.logo{font-family:Anton,Impact,sans-serif;font-size:1.25rem;letter-spacing:.18em}
+.nav ul{display:flex;gap:2rem;list-style:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.nav ul a{opacity:.82;transition:opacity .2s}.nav ul a:hover{opacity:1}
+.cta{display:inline-flex;align-items:center;gap:.5rem;padding:.62rem 1.15rem;border:1px solid rgba(255,255,255,.55);border-radius:99px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;transition:background .3s,color .3s}
+.cta:hover{background:#fff;color:var(--ink)}
+.cta.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+@media (max-width:860px){.nav ul{display:none}.nav .cta{padding:.5rem .9rem;font-size:.7rem}}
+
+/* HERO */
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#0b2350 url(img/hero-lqip.webp) center/cover;isolation:isolate}
+.scene{position:absolute;inset:-5% -3% -3%;will-change:transform}
+.scene picture,.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 50%}
+.title{position:absolute;left:0;right:0;z-index:1;text-align:center;color:#fff;white-space:nowrap;font-size:20.5vw;top:calc(50% - 15.6vw);will-change:transform;text-shadow:0 10px 60px rgba(0,10,40,.25)}
+.title span{display:inline-block;opacity:0;transform:translateY(40%);animation:rise 1.4s var(--ease) forwards}
+.fg{z-index:2}
+.reflect{position:absolute;left:0;right:0;z-index:3;text-align:center;font-size:20.5vw;top:calc(74% + .02vw);transform:scaleY(-1);color:#fff;opacity:.11;white-space:nowrap;filter:blur(1.5px);-webkit-mask:linear-gradient(to top,#000 0%,transparent 55%);mask:linear-gradient(to top,#000 0%,transparent 55%);pointer-events:none;animation:fade 2s 1s both}
+.shade{position:absolute;inset:0;z-index:4;background:linear-gradient(180deg,rgba(6,14,32,.55) 0%,rgba(6,14,32,0) 22%,rgba(6,14,32,0) 70%,rgba(6,14,32,.85) 100%);pointer-events:none}
+.hero-copy{position:absolute;z-index:5;left:clamp(1.1rem,3vw,2.5rem);right:clamp(1.1rem,3vw,2.5rem);bottom:clamp(1.4rem,5vh,3rem);display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;animation:fade 1.4s .7s both}
+.hero-copy h1{font-weight:300;font-size:clamp(1.35rem,2.6vw,2.2rem);line-height:1.15;letter-spacing:.01em;max-width:18ch}
+.hero-copy p{color:var(--mut);font-size:.92rem;max-width:34ch;margin-top:.5rem}
+.facts{display:flex;gap:clamp(1rem,3vw,2.6rem);text-align:right}
+.facts b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:.03em}
+.facts span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.scroll{position:absolute;z-index:5;left:50%;bottom:1.2rem;width:1px;height:46px;background:linear-gradient(#fff,transparent);opacity:.6;animation:drip 2.4s infinite}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-aspect-ratio:4/5){
+ .scene img{object-position:50% 50%}
+ .title,.reflect{font-size:21.5vw}
+ .title{top:calc(43% - 16.4vw)}
+ .reflect{top:calc(63.5%)}
+ .hero-copy{flex-direction:column;align-items:flex-start}
+ .facts{text-align:left}
+ .scroll{display:none}
+}
+
+/* SECTIONS */
+section{position:relative}
+.pad{padding:clamp(4.5rem,11vw,9rem) 0}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+.intro h2,.sec-h{font-weight:300;font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.08;letter-spacing:-.01em;margin-top:1rem}
+.intro h2 em,.sec-h em{font-style:normal;color:var(--gold)}
+.intro p{color:var(--mut);font-size:1.02rem;max-width:46ch}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:clamp(3rem,7vw,5rem)}
+.stats div{padding:1.6rem 0 0}
+.stats b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2rem,5vw,3.6rem);display:block;line-height:1}
+.stats span{color:var(--mut);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr);gap:0 1rem}}
+
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-top p{color:var(--mut);max-width:40ch}
+@media (max-width:760px){.sec-top{flex-direction:column;align-items:flex-start;gap:1rem}}
+
+/* PANORAMA */
+.pano{position:relative;height:clamp(360px,74vh,760px);overflow-x:auto;overflow-y:hidden;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.pano::-webkit-scrollbar{display:none}
+.pano.drag{cursor:grabbing}
+.pano img{height:100%;width:auto;min-width:165%;max-width:none;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.pano-hint{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:.6rem;padding:.6rem 1.1rem;border-radius:99px;background:rgba(8,20,43,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transition:opacity .5s}
+.pano-wrap{position:relative}
+.pano-label{position:absolute;top:1.4rem;left:clamp(1.1rem,3vw,2.5rem);z-index:2;pointer-events:none}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,1.6vw,1.4rem);margin-top:clamp(1rem,2vw,1.4rem)}
+.card{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:var(--ink2)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.card:hover img{transform:scale(1.06)}
+.card figcaption{position:absolute;inset:auto 0 0;padding:4rem 1.3rem 1.3rem;background:linear-gradient(transparent,rgba(6,14,32,.88))}
+.card h3{font-weight:400;font-size:1.25rem}
+.card p{color:var(--mut);font-size:.88rem}
+@media (max-width:760px){.cards{grid-template-columns:1fr;}.card{aspect-ratio:4/3}}
+
+/* GIANT TEXT */
+.giant{position:relative;overflow:hidden;min-height:clamp(440px,92vh,900px);display:grid;place-items:center;text-align:center;margin-bottom:clamp(3rem,8vw,6rem)}
+.giant>img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;will-change:transform}
+.giant::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(8,20,43,.35) 22%,rgba(8,20,43,.35) 78%,var(--ink) 100%)}
+.giant .in{position:relative;z-index:1}
+.giant .display{font-size:clamp(5rem,21vw,21rem);color:#fff;text-shadow:0 20px 80px rgba(0,8,30,.45)}
+.giant p{color:var(--txt);margin-top:1.6rem;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;padding:0 1rem}
+/* TOUR */
+.tabs{position:relative;display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;margin-bottom:1rem;padding-bottom:.2rem}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:.6rem 1.1rem;border:1px solid var(--line);border-radius:99px;font-size:.8rem;letter-spacing:.08em;color:var(--mut);transition:all .3s}
+.tab[aria-selected=true]{background:var(--txt);color:var(--ink);border-color:var(--txt)}
+.tour{display:grid;grid-template-columns:minmax(0,2.15fr) minmax(0,1fr);gap:clamp(1rem,2.5vw,2rem);align-items:start}
+.stage{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:16/9;background:var(--ink2)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease,transform 1.2s var(--ease)}
+.stage img.out{opacity:0;transform:scale(1.03)}
+.full{position:absolute;right:.8rem;top:.8rem;z-index:3;display:flex;align-items:center;gap:.45rem;padding:.5rem .85rem;border-radius:99px;background:rgba(8,20,43,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.hs{position:absolute;z-index:2;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(255,255,255,.22);border:1.5px solid #fff;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:pop .5s var(--ease) both}
+.hs::before{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+.hs::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(255,255,255,.7);animation:pulse 2.2s infinite}
+.hs[aria-expanded=true]{background:var(--gold);border-color:var(--gold)}
+@keyframes pulse{from{transform:scale(.7);opacity:1}to{transform:scale(1.5);opacity:0}}
+@keyframes pop{from{transform:scale(0)}}
+.tip{position:absolute;z-index:4;width:min(260px,70%);padding:.9rem 1rem;border-radius:6px;background:rgba(8,20,43,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);font-size:.86rem;line-height:1.45;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;pointer-events:none}
+.tip.on{opacity:1;transform:none;pointer-events:auto}
+.tip b{display:block;color:var(--gold);font-weight:500;margin-bottom:.2rem}
+.room h3{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:.02em;text-transform:uppercase;line-height:1;margin:.6rem 0 .8rem}
+.room>p{color:var(--mut);font-size:.95rem}
+.items{list-style:none;margin-top:1.2rem;border-top:1px solid var(--line)}
+.items li{border-bottom:1px solid var(--line)}
+.items button{width:100%;display:flex;justify-content:space-between;gap:1rem;padding:.72rem 0;text-align:left;font-size:.9rem;transition:color .2s}
+.items button:hover,.items button.act{color:var(--gold)}
+.items small{color:var(--mut);font-size:.75rem;white-space:nowrap}
+.navr{display:flex;gap:.6rem;margin-top:1.3rem}
+.navr button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .2s}
+.navr button:hover{background:rgba(255,255,255,.1)}
+@media (max-width:900px){.tour{grid-template-columns:1fr}.stage{aspect-ratio:4/3}}
+
+/* PLAN */
+.plan-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.plan{width:100%;height:auto;max-height:560px}
+.plan .rm{cursor:pointer}
+.plan .rm rect{fill:rgba(255,255,255,.035);stroke:rgba(255,255,255,.55);stroke-width:1.5;transition:fill .3s}
+.plan .rm:hover rect,.plan .rm:focus-visible rect{fill:rgba(233,201,143,.1)}
+.plan .rm.act rect{fill:rgba(233,201,143,.14);stroke:var(--gold);stroke-width:2.5}.plan .rm.act text{fill:var(--gold)}
+.plan text{fill:#fff;font:500 13px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.plan .m2{fill:var(--mut);font-size:11px;letter-spacing:.04em}
+.plan .ext rect{fill:none;stroke:rgba(255,255,255,.2);stroke-dasharray:4 5}
+.plan .ext text{fill:var(--mut)}
+@media (max-width:860px){.plan-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.contact>picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.contact::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(8,20,43,.35),rgba(8,20,43,.88))}
+.contact .in{position:relative;z-index:1;padding:4rem 1.25rem}
+.contact h2{font-size:clamp(3.4rem,12vw,10rem);margin-top:1.2rem}
+.contact p{color:var(--txt);opacity:.85;max-width:44ch;margin:1.2rem auto 2rem}
+footer{padding:2rem 0 2.6rem;color:var(--mut);font-size:.78rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* LIGHTBOX */
+dialog.lb{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;border:0;background:rgba(3,8,20,.96);color:#fff;padding:0}
+dialog.lb::backdrop{background:rgba(3,8,20,.9)}
+.lb figure{position:absolute;inset:0;display:grid;place-items:center;padding:3.5rem 1rem 4.5rem}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px;animation:fade .4s both}
+.lb figcaption{position:absolute;left:0;right:0;bottom:1.3rem;text-align:center;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+.lb .x,.lb .pv,.lb .nx{position:absolute;z-index:2;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:1.4rem}
+.lb .x{top:1rem;right:1rem}.lb .pv{left:1rem;top:50%}.lb .nx{right:1rem;top:50%}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.title span{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a class="logo" href="#inicio">MONTEVAR</a>
+  <ul><li><a href="#casa">La casa</a></li><li><a href="#entorno">Entorno</a></li><li><a href="#interior">Interior</a></li><li><a href="#plano">Plano</a></li></ul>
+  <a class="cta" href="#contacto">Agendar visita</a>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="scene" id="scene">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="img/hero-movil-576.webp">
+      <img src="img/hero-1280.webp" srcset="img/hero-960.webp 960w, img/hero-1280.webp 1280w" sizes="100vw" alt="Casa de lujo de piedra y vidrio iluminada al anochecer, frente a una piscina infinita que la refleja, con bosque de pinos y montañas nevadas" fetchpriority="high" decoding="async" width="1280" height="720">
+    </picture>
+  </div>
+  <div class="title display" id="title" aria-hidden="true"><span>Montevar</span></div>
+  <div class="scene fg" id="fg" aria-hidden="true">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="img/hero-movil-fg-576.webp">
+      <img src="img/hero-fg-1280.webp" srcset="img/hero-fg-960.webp 960w, img/hero-fg-1280.webp 1280w" sizes="100vw" alt="" decoding="async" width="1280" height="720">
+    </picture>
+  </div>
+  <div class="reflect display" id="reflect" aria-hidden="true">Montevar</div>
+  <div class="shade"></div>
+  <div class="hero-copy">
+    <div>
+      <div class="eyebrow">Residencia privada · Patagonia</div>
+      <h1>Casa de lujo en la montaña</h1>
+      <p>Piedra, madera y vidrio frente a un lago de agua quieta. Un refugio para vivir el paisaje desde adentro.</p>
+    </div>
+    <div class="facts">
+      <div><b>820 m²</b><span>Cubiertos</span></div>
+      <div><b>5</b><span>Suites</span></div>
+      <div><b>2,4 ha</b><span>Terreno</span></div>
+    </div>
+  </div>
+  <div class="scroll" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="pad" id="casa">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv">
+        <div class="eyebrow">La casa</div>
+        <h2>Una residencia pensada para que <em>la montaña</em> entre por cada ventana.</h2>
+      </div>
+      <p class="rv">Techos a dos aguas, fachadas de piedra gris y madera quemada, y paños de vidrio de piso a techo que encienden la casa al caer la tarde. Adentro, muebles de diseño, materiales nobles y una luz cálida que contrasta con el azul del anochecer.</p>
+    </div>
+    <div class="stats rv">
+      <div><b>820</b><span>m² cubiertos</span></div>
+      <div><b>5</b><span>Suites en suite</span></div>
+      <div><b>3</b><span>Hogares a leña</span></div>
+      <div><b>25 m</b><span>Piscina infinita</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="entorno">
+  <div class="wrap sec-top">
+    <div class="rv"><div class="eyebrow">El entorno</div><h2 class="sec-h">Lago, bosque y <em>cordillera</em> alrededor.</h2></div>
+    <p class="rv">Arrastrá la vista para recorrer la costa del lago: un conjunto de residencias rodeadas de pinos, con las montañas nevadas de fondo.</p>
+  </div>
+  <div class="pano-wrap rv">
+    <div class="pano-label eyebrow">Vista panorámica · Costa del lago</div>
+    <div class="pano" id="pano" tabindex="0" aria-label="Vista panorámica del lago, arrastrá para recorrer">
+      <img src="img/lago-1280.webp" srcset="img/lago-768.webp 768w, img/lago-1280.webp 1280w" sizes="(max-width:760px) 1280px, 1280px" alt="Hilera de casas de lujo iluminadas a orillas de un lago, reflejadas en el agua, con montañas nevadas detrás" loading="lazy" decoding="async" width="1280" height="720">
+    </div>
+    <div class="pano-hint" id="hint"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M3 12h18"/></svg>Arrastrá para recorrer</div>
+  </div>
+  <div class="wrap">
+    <div class="cards">
+      <figure class="card rv"><img src="img/aerea-768.webp" srcset="img/aerea-768.webp 768w, img/aerea-1280.webp 1280w" sizes="(max-width:760px) 100vw, 33vw" alt="Vista aérea de la casa, la piscina, el muelle y el lago" loading="lazy" decoding="async" width="768" height="432"><figcaption><h3>Vista aérea</h3><p>Muelle privado, piscina infinita y lago.</p></figcaption></figure>
+      <figure class="card rv"><img src="img/jardin-768.webp" srcset="img/jardin-768.webp 768w, img/jardin-1280.webp 1280w" sizes="(max-width:760px) 100vw, 33vw" alt="Jardín con senderos de piedra, lavandas y un fogón hundido encendido" loading="lazy" decoding="async" width="768" height="432"><figcaption><h3>Jardines</h3><p>Senderos de piedra, lavandas y fogón.</p></figcaption></figure>
+      <figure class="card rv"><img src="img/hero-960.webp" sizes="(max-width:760px) 100vw, 33vw" alt="Montañas nevadas y bosque de pinos detrás de la casa" loading="lazy" decoding="async" width="960" height="540" style="object-position:20% 40%"><figcaption><h3>Montañas</h3><p>Cordillera nevada y bosque de pinos.</p></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="giant" aria-label="Casa de lujo">
+  <img id="gImg" src="img/living-1280.webp" srcset="img/living-768.webp 768w, img/living-1280.webp 1280w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1280" height="720">
+  <div class="in">
+    <div class="display rv">Casa de</div>
+    <div class="display rv">Lujo</div>
+    <p class="rv">Recorré el interior ambiente por ambiente</p>
+  </div>
+</section>
+
+<section class="pad" id="interior" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div class="rv"><div class="eyebrow">Recorrido interior</div><h2 class="sec-h">Entrá y mirá <em>cada detalle</em>.</h2></div>
+      <p class="rv">Elegí un ambiente y tocá los puntos sobre la foto para conocer cada mueble de lujo.</p>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="tour rv">
+      <div class="stage" id="stage">
+        <img id="roomImg" src="img/living-1280.webp" srcset="img/living-768.webp 768w, img/living-1280.webp 1280w" sizes="(max-width:900px) 100vw, 66vw" alt="" loading="lazy" decoding="async" width="1280" height="720">
+        <button class="full" id="fullBtn" aria-label="Ver en pantalla completa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button>
+        <div class="tip" id="tip" role="status"></div>
+      </div>
+      <div class="room" id="room" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="plano" style="background:linear-gradient(180deg,var(--ink),var(--ink2))">
+  <div class="wrap plan-grid">
+    <div class="rv">
+      <div class="eyebrow">Plano</div>
+      <h2 class="sec-h">Tocá un ambiente del plano <em>para entrar</em>.</h2>
+      <p style="color:var(--mut);margin-top:1rem;max-width:40ch">Planta principal: el living de doble altura conecta con el comedor y la cocina; la suite y el spa miran al lago.</p>
+    </div>
+    <svg class="plan rv" id="plan" viewBox="0 0 640 440" role="group" aria-label="Plano interactivo de la casa">
+      <g class="ext"><rect x="10" y="372" width="620" height="58"/><text x="320" y="406" text-anchor="middle">Terraza · Piscina infinita · Lago</text></g>
+      <g class="rm" data-i="3" tabindex="0" role="button" aria-label="Dormitorio principal"><rect x="10" y="10" width="190" height="200"/><text x="105" y="104" text-anchor="middle">Suite</text><text class="m2" x="105" y="124" text-anchor="middle">62 m²</text></g>
+      <g class="rm" data-i="4" tabindex="0" role="button" aria-label="Baño principal"><rect x="10" y="210" width="190" height="150"/><text x="105" y="282" text-anchor="middle">Baño</text><text class="m2" x="105" y="302" text-anchor="middle">28 m²</text></g>
+      <g class="rm" data-i="0" tabindex="0" role="button" aria-label="Living"><rect x="200" y="120" width="250" height="240"/><text x="325" y="236" text-anchor="middle">Living</text><text class="m2" x="325" y="256" text-anchor="middle">96 m² · doble altura</text></g>
+      <g class="rm" data-i="2" tabindex="0" role="button" aria-label="Comedor"><rect x="200" y="10" width="130" height="110"/><text x="265" y="62" text-anchor="middle">Comedor</text><text class="m2" x="265" y="82" text-anchor="middle">38 m²</text></g>
+      <g class="rm" data-i="1" tabindex="0" role="button" aria-label="Cocina"><rect x="330" y="10" width="120" height="110"/><text x="390" y="62" text-anchor="middle">Cocina</text><text class="m2" x="390" y="82" text-anchor="middle">34 m²</text></g>
+      <g class="rm" data-i="5" tabindex="0" role="button" aria-label="Spa y piscina"><rect x="450" y="10" width="180" height="350"/><text x="540" y="180" text-anchor="middle">Spa</text><text class="m2" x="540" y="200" text-anchor="middle">110 m² · piscina</text></g>
+    </svg>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <picture><img src="img/aerea-1280.webp" srcset="img/aerea-768.webp 768w, img/aerea-1280.webp 1280w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1280" height="720"></picture>
+  <div class="in rv">
+    <div class="eyebrow">Visitas privadas</div>
+    <h2 class="display">Viví Montevar</h2>
+    <p>Coordinamos recorridos privados con cita previa. Dejanos tu consulta y te contactamos.</p>
+    <a class="cta gold" href="mailto:benja18292usnx@gmail.com?subject=Consulta%20Montevar">Agendar visita</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Montevar · Casa de lujo en la montaña</span><span>Proyecto conceptual · imágenes generadas con IA</span></div></footer>
+
+<dialog class="lb" id="lb" aria-label="Galería en pantalla completa">
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="x" id="lbX" aria-label="Cerrar">✕</button>
+  <button class="pv" id="lbP" aria-label="Anterior">‹</button>
+  <button class="nx" id="lbN" aria-label="Siguiente">›</button>
+</dialog>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const R=[
+{k:'living',n:'Living',t:'Living de doble altura',d:'Un ventanal a dos aguas de 9 metros enmarca el bosque y la cordillera. El hogar de piedra es el corazón de la casa.',h:[
+[22,57,'Hogar de piedra','Columna de piedra natural de piso a techo con hogar a leña y repisa de nogal.'],
+[70,72,'Sofá modular bouclé','Sofá en L de bouclé color crema, módulos profundos y almohadones de lino.'],
+[19,83,'Sillón lounge de cuero','Sillón y apoyapiés de cuero cognac con base de aluminio, un clásico del diseño.'],
+[56,84,'Mesa de travertino','Mesa ratona maciza de travertino romano con libros de arte y cerámica.'],
+[60,16,'Lámpara de diseño','Colgante escultural de bronce con luz LED cálida regulable.'],
+[78,40,'Ventanal panorámico','Doble vidriado hermético con vista a la cordillera nevada.'],
+[89,57,'Lámpara de pie','Lámpara arco de bronce cepillado para lectura.']]},
+{k:'cocina',n:'Cocina',t:'Cocina de autor',d:'Isla de mármol Calacatta con caída en cascada, muebles de roble ahumado y equipamiento profesional.',h:[
+[46,72,'Isla de mármol Calacatta','Bloque de mármol con vetas espejadas y caída en cascada a ambos lados.'],
+[29,27,'Campana de bronce','Campana a medida en bronce satinado sobre cocina profesional de seis hornallas.'],
+[47,25,'Colgantes de alabastro','Dos lámparas de alabastro tallado que dan una luz suave y cálida.'],
+[60,78,'Banquetas de cuero','Banquetas con estructura de bronce y asiento de cuero tostado.'],
+[10,36,'Estantes iluminados','Estantes flotantes de nogal con LED oculto y cerámica artesanal.'],
+[85,45,'Vista al bosque','Paño de vidrio de piso a techo hacia la terraza y los pinos.']]},
+{k:'comedor',n:'Comedor',t:'Comedor para diez',d:'Mesa de nogal de borde vivo, araña de vidrio soplado y cava climatizada a la vista.',h:[
+[55,70,'Mesa de nogal macizo','Tabla única de nogal de borde vivo de 3,6 metros para diez personas.'],
+[49,24,'Araña de vidrio soplado','Araña lineal de bronce con globos de vidrio soplado a mano.'],
+[17,45,'Cava vidriada','Cava climatizada para 300 botellas con iluminación cálida.'],
+[85,78,'Sillas tapizadas','Sillas envolventes tapizadas en bouclé crema.'],
+[77,38,'Vista a la cordillera','Ventanales de piso a techo hacia las montañas nevadas.']]},
+{k:'dormitorio',n:'Dormitorio principal',t:'Suite principal',d:'Cama king con respaldo capitoné de terciopelo, hogar a gas y un rincón de lectura frente al bosque.',h:[
+[62,70,'Cama king','Colchón premium, ropa de cama de lino lavado y manta de cashmere.'],
+[82,50,'Respaldo de terciopelo','Respaldo alto capitoné a canales en terciopelo topo.'],
+[91,55,'Lámparas de bronce','Veladores de bronce fundido sobre mesas de luz de travertino.'],
+[5,60,'Hogar lineal','Hogar a gas empotrado en pared de piedra oscura.'],
+[19,72,'Sillones curvos','Par de sillones envolventes para leer mirando la nieve.'],
+[33,40,'Ventanal esquinero','Vista a los pinos y a la cordillera desde la cama.']]},
+{k:'bano',n:'Baño',t:'Baño en suite',d:'Bañera exenta de piedra frente a la ventana, ducha de lluvia y doble vanitory de nogal.',h:[
+[49,73,'Bañera de piedra','Bañera exenta tallada en piedra natural, con grifería de bronce de pie.'],
+[84,66,'Vanitory doble','Mueble flotante de nogal con mesada de mármol y grifería de bronce cepillado.'],
+[91,30,'Espejos retroiluminados','Espejos ovalados con luz LED perimetral cálida.'],
+[14,40,'Ducha de lluvia','Ducha amplia con cerramiento de vidrio y paredes de piedra gris.'],
+[50,36,'Ventana al bosque','Ventana de piso a techo para bañarse mirando la montaña.']]},
+{k:'spa',n:'Spa y piscina',t:'Spa y piscina climatizada',d:'Piscina interior climatizada, sauna seco de madera y reposeras de teca frente al bosque nevado.',h:[
+[63,77,'Piscina climatizada','Piscina interior de 18 metros con agua a 30 °C e iluminación subacuática.'],
+[22,50,'Sauna de madera','Sauna seco revestido en madera de abeto con frente vidriado.'],
+[16,80,'Reposeras de teca','Reposeras de teca con almohadones y toallas de algodón egipcio.'],
+[81,42,'Muro de vidrio','Vista directa al bosque nevado mientras nadás.'],
+[29,16,'Muro de piedra','Piedra natural iluminada desde el piso con luz rasante.']]}
+];
+const img=$('#roomImg'),stage=$('#stage'),tip=$('#tip'),room=$('#room'),tabs=$('#tabs');
+let cur=0,lbI=0;
+const src=(k,w)=>`img/${k}-${w}.webp`;
+R.forEach((r,i)=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.textContent=r.n;b.onclick=()=>show(i);tabs.appendChild(b)});
+function hideTip(){tip.classList.remove('on');stage.querySelectorAll('.hs').forEach(h=>h.setAttribute('aria-expanded','false'));room.querySelectorAll('.items button').forEach(b=>b.classList.remove('act'))}
+function openTip(j){const r=R[cur],h=r.h[j],btn=stage.querySelectorAll('.hs')[j];hideTip();btn.setAttribute('aria-expanded','true');const li=room.querySelectorAll('.items button')[j];li&&li.classList.add('act');
+ tip.innerHTML=`<b>${h[2]}</b>${h[3]}`;const W=stage.clientWidth,H=stage.clientHeight,tw=tip.offsetWidth,th=tip.offsetHeight;
+ let x=h[0]/100*W+20,y=h[1]/100*H-th/2;if(x+tw>W-8)x=h[0]/100*W-20-tw;x=Math.max(8,x);y=Math.min(Math.max(8,y),H-th-8);tip.style.left=x+'px';tip.style.top=y+'px';tip.classList.add('on')}
+function show(i,scroll){cur=(i+R.length)%R.length;const r=R[cur];hideTip();
+ tabs.querySelectorAll('.tab').forEach((t,j)=>t.setAttribute('aria-selected',j===cur));
+ {const t=tabs.children[cur];tabs.scrollTo({left:t.offsetLeft-(tabs.clientWidth-t.offsetWidth)/2,behavior:'smooth'})}
+ img.classList.add('out');const n=new Image();n.srcset=`${src(r.k,768)} 768w, ${src(r.k,1280)} 1280w`;n.sizes=img.sizes;n.src=src(r.k,1280);
+ const done=()=>{img.srcset=n.srcset;img.src=n.src;img.alt=r.t+': '+r.d;requestAnimationFrame(()=>img.classList.remove('out'))};
+ (n.decode?n.decode():Promise.resolve()).then(done,done);
+ stage.querySelectorAll('.hs').forEach(h=>h.remove());
+ r.h.forEach((h,j)=>{const b=document.createElement('button');b.className='hs';b.style.left=h[0]+'%';b.style.top=h[1]+'%';b.style.animationDelay=(.3+j*.07)+'s';b.setAttribute('aria-label',h[2]);b.setAttribute('aria-expanded','false');b.onclick=e=>{e.stopPropagation();b.getAttribute('aria-expanded')==='true'?hideTip():openTip(j)};stage.appendChild(b)});
+ room.innerHTML=`<div class="eyebrow">${String(cur+1).padStart(2,'0')} / ${String(R.length).padStart(2,'0')}</div><h3>${r.n}</h3><p>${r.d}</p><ul class="items">${r.h.map((h,j)=>`<li><button data-j="${j}">${h[2]}<small>Ver ●</small></button></li>`).join('')}</ul><div class="navr"><button id="rp" aria-label="Ambiente anterior">←</button><button id="rn" aria-label="Ambiente siguiente">→</button></div>`;
+ room.querySelectorAll('.items button').forEach(b=>b.onclick=()=>openTip(+b.dataset.j));
+ $('#rp').onclick=()=>show(cur-1);$('#rn').onclick=()=>show(cur+1);
+ document.querySelectorAll('#plan .rm').forEach(g=>g.classList.toggle('act',+g.dataset.i===cur));
+ if(scroll)$('#interior').scrollIntoView({behavior:'smooth'});
+ const nx=R[(cur+1)%R.length];new Image().src=src(nx.k,innerWidth<900?768:1280);
+}
+stage.addEventListener('click',e=>{if(e.target===img||e.target===stage)hideTip()});
+show(0);
+document.querySelectorAll('#plan .rm').forEach(g=>{const go=()=>show(+g.dataset.i,true);g.onclick=go;g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+
+/* lightbox */
+const lb=$('#lb'),lbImg=$('#lbImg'),lbCap=$('#lbCap');
+function lbShow(i){lbI=(i+R.length)%R.length;const r=R[lbI];lbImg.src=src(r.k,1280);lbImg.alt=r.t;lbCap.textContent=r.t+'  ·  '+(lbI+1)+'/'+R.length}
+$('#fullBtn').onclick=()=>{lbShow(cur);lb.showModal?lb.showModal():lb.setAttribute('open','')};
+$('#lbX').onclick=()=>lb.close();$('#lbP').onclick=()=>lbShow(lbI-1);$('#lbN').onclick=()=>lbShow(lbI+1);
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')lbShow(lbI-1);if(e.key==='ArrowRight')lbShow(lbI+1)});
+let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)lbShow(lbI+(d<0?1:-1))});
+lb.addEventListener('close',()=>show(lbI));
+
+/* panorama drag */
+const p=$('#pano'),hint=$('#hint');let down=false,sx=0,sl=0,moved=false;
+p.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl=p.scrollLeft;p.classList.add('drag')});
+addEventListener('pointermove',e=>{if(!down)return;p.scrollLeft=sl-(e.clientX-sx);moved=true});
+addEventListener('pointerup',()=>{down=false;p.classList.remove('drag')});
+p.addEventListener('scroll',()=>{hint.style.opacity=0},{passive:true});
+const center=()=>{p.scrollLeft=(p.scrollWidth-p.clientWidth)/2};
+p.querySelector('img').complete?center():p.querySelector('img').addEventListener('load',center);
+
+/* nav + parallax */
+const nav=$('#nav'),scene=$('#scene'),fg=$('#fg'),title=$('#title'),refl=$('#reflect');
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;let mx=0,my=0,tick=false;
+function frame(){tick=false;const y=scrollY,h=innerHeight;nav.classList.toggle('solid',y>40);
+ if(still||y>h*1.1)return;const s=`translate3d(${mx*-10}px,${y*.32+my*-6}px,0) scale(${1+y/h*.06})`;
+ scene.style.transform=s;fg.style.transform=s;
+ title.style.transform=`translate3d(${mx*14}px,${y*.62+my*8}px,0)`;title.style.opacity=Math.max(0,1-y/(h*.75));
+ refl.style.transform=`translate3d(${mx*14}px,${y*.32-my*4}px,0) scaleY(-1)`}
+const gI=$('#gImg');addEventListener('scroll',()=>{if(still)return;const r=gI.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)gI.style.transform=`translate3d(0,${(r.top+r.height/2-innerHeight/2)*-.08}px,0)`},{passive:true});
+const req=()=>{if(!tick){tick=true;requestAnimationFrame(frame)}};
+addEventListener('scroll',req,{passive:true});
+if(matchMedia('(hover:hover) and (pointer:fine)').matches)addEventListener('mousemove',e=>{if(scrollY>innerHeight)return;mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;req()},{passive:true});
+frame();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
